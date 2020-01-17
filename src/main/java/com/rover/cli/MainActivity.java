@@ -29,6 +29,7 @@ public class MainActivity {
         displayObstacles+="= Obstacle(s))";
         System.out.println(displayObstacles);
         while(!"end".equals(choice)){
+            System.out.print("Rover > ");
             choice = choose.nextLine();
             position = Utils.changeOrientationOrPosition(position, grid, choice, obstacles);
             System.out.println("Position > " + position.getOrientation() + " : " + position.getPositionX() + " : " + position.getPositionY());
