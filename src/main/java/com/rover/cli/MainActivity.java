@@ -13,7 +13,7 @@ public class MainActivity {
         Scanner choose = new Scanner(System.in);
         String choice= null;
         Position position = new Position(0, 0, "N");
-        Grid grid = new Grid(5,5);
+        Grid grid = new Grid(Utils.randomInt(5,20),Utils.randomInt(5,20));
         List<Obstacle> obstacles = new ArrayList<>();
         for(int i = 0; i < Utils.randomInt(1,grid.getLimX())*Utils.randomInt(1,grid.getLimY()); i++){
             Obstacle obstacle = new Obstacle(Utils.randomInt(0,grid.getLimX()), Utils.randomInt(0,grid.getLimY()));
