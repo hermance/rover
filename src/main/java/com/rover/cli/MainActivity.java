@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class MainActivity {
     public static void main(String[] args){
-        System.out.println("Bonjour ! Choisissez une orientation. ");
+        System.out.println("Bonjour ! Entrez une commande. ");
         Scanner choose = new Scanner(System.in);
         String choice= null;
         Position position = new Position(0, 0, "N");
