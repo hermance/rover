@@ -2,42 +2,58 @@ package com.rover.core;
 
 public class Orientation{
 
-    public static String changeOrientation(String oldPosition, String newOrientations){
-        String newPosition = oldPosition;
+    public static Position changeOrientationOrPosition(Position oldPosition, String newOrientations){
+        Position position = oldPosition;
+
         char[] array = newOrientations.toCharArray();
-        for(char orientation : array){
-            if(orientation == 'L'){
-                switch(newPosition){
-                    case "N":
-                        newPosition= "W" ;
-                        break;
-                    case "S":
-                        newPosition= "E" ;
-                        break;
-                    case "E":
-                        newPosition= "N" ;
-                        break;
-                    case "W":
-                        newPosition= "S" ;
-                        break;
-                }
-            }else if (orientation == 'R'){
-                switch(newPosition){
-                    case "N":
-                        newPosition= "E" ;
-                        break;
-                    case "S":
-                        newPosition= "W" ;
-                        break;
-                    case "E":
-                        newPosition= "S" ;
-                        break;
-                    case "W":
-                        newPosition= "N" ;
-                        break;
-                }
+        for(char change : array){
+            switch(oldPosition.getOrientation()){
+                case "N":
+                    if(change == 'L'){
+                        position.setOrientation("W") ;
+                    }else if (change == 'R'){
+                        position.setOrientation("E") ;
+                    }else if(change=='F'){
+                        position.setPositionY(position.getPositionY()+1);
+                    }else if(change=='B'){
+                        position.setPositionY(position.getPositionY()-1);
+                    }
+                    break;
+                case "S":
+                    if(change == 'L'){
+                        position.setOrientation("E") ;
+                    }else if (change == 'R'){
+                        position.setOrientation("W") ;
+                    }else if(change=='F'){
+                        position.setPositionY(position.getPositionY()-1);
+                    }else if(change=='B'){
+                        position.setPositionY(position.getPositionY()+1);
+                    }
+                    break;
+                case "E":
+                    if(change == 'L'){
+                        position.setOrientation("N") ;
+                    }else if (change == 'R'){
+                        position.setOrientation("S") ;
+                    }else if(change=='F'){
+                        position.setPositionX(position.getPositionX()+1);
+                    }else if(change=='B'){
+                        position.setPositionX(position.getPositionX()-1);
+                    }
+                    break;
+                case "W":
+                    if(change == 'L'){
+                        position.setOrientation("S") ;
+                    }else if (change == 'R'){
+                        position.setOrientation("N") ;
+                    }else if(change=='F'){
+                        position.setPositionX(position.getPositionX()-1);
+                    }else if(change=='B'){
+                        position.setPositionX(position.getPositionX()+1);
+                    }
+                    break;
             }
         }
-        return newPosition;
+        return position;
     }
 }
