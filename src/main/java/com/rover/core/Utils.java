@@ -9,7 +9,7 @@ public class Utils{
         // todo check for obstacles
         char[] array = newOrientations.toCharArray();
         for(char change : array){
-            Position copyOldPosition = position;
+            Position copyOldPosition = new Position(position.getPositionX(), position.getPositionY(), position.getOrientation());
             switch(oldPosition.getOrientation()){
                 case "N":
                     if(change == 'L'){
@@ -102,11 +102,8 @@ public class Utils{
         Position position = newPosition;
         for(Obstacle obstacle : obstacles){
             boolean hasHurtObstacle = false;
-            if(position.getPositionX() == obstacle.getPositionX()){
+            if(newPosition.getPositionX() == obstacle.getPositionX() && newPosition.getPositionY() == obstacle.getPositionY()){
                 position.setPositionX(oldPosition.getPositionX());
-                hasHurtObstacle = true;
-            }
-            if(position.getPositionY() == obstacle.getPositionY()){
                 position.setPositionY(oldPosition.getPositionY());
                 hasHurtObstacle = true;
             }
