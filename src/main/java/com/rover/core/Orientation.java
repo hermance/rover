@@ -4,30 +4,37 @@ public class Orientation{
 
     public static String changeOrientation(String oldPosition, String newOrientations){
         String newPosition = oldPosition;
-        String[] array = newOrientations.split("");
-        for(int i = 0; i < array.length; i++){
-            String orientation = array[i];
-            if(orientation == "L"){
+        char[] array = newOrientations.toCharArray();
+        for(char orientation : array){
+            if(orientation == 'L'){
                 switch(newPosition){
                     case "N":
                         newPosition= "W" ;
+                        break;
                     case "S":
                         newPosition= "E" ;
+                        break;
                     case "E":
                         newPosition= "N" ;
+                        break;
                     case "W":
                         newPosition= "S" ;
+                        break;
                 }
-            }else if (orientation == "R"){
+            }else if (orientation == 'R'){
                 switch(newPosition){
                     case "N":
                         newPosition= "E" ;
+                        break;
                     case "S":
                         newPosition= "W" ;
+                        break;
                     case "E":
                         newPosition= "S" ;
+                        break;
                     case "W":
                         newPosition= "N" ;
+                        break;
                 }
             }
         }
