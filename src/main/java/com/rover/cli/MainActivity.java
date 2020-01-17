@@ -16,7 +16,6 @@ public class MainActivity {
         Grid grid = new Grid(5,5);
         List<Obstacle> obstacles = new ArrayList<>();
         for(int i = 0; i < Utils.randomInt(1,grid.getLimX())*Utils.randomInt(1,grid.getLimY()); i++){
-            // on a au max le nombre de cases possibles moins la place de notre rover
             Obstacle obstacle = new Obstacle(Utils.randomInt(0,grid.getLimX()), Utils.randomInt(0,grid.getLimY()));
             obstacles.add(obstacle);
         }
