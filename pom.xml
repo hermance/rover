@@ -20,7 +20,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.rover.MainActivity</mainClass>
+                            <mainClass>com.rover.cli.MainActivity</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
