@@ -1,10 +1,12 @@
 package com.rover.core;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
-public class Orientation{
+public class Utils{
 
-    public static Position changeOrientationOrPosition(Position oldPosition, Grid grid, String newOrientations){
+    public static Position changeOrientationOrPosition(Position oldPosition, Grid grid, String newOrientations, List<Obstacle> obstacles){
         Position position = oldPosition;
-
+        // todo check for obstacles
         char[] array = newOrientations.toCharArray();
         for(char change : array){
             switch(oldPosition.getOrientation()){
@@ -93,4 +95,22 @@ public class Orientation{
         }
         return position;
     }
+
+    public static Position checkObstacle(Position newPosition, Position oldPosition, List<Obstacle> obstacles){
+        Position position = newPosition;
+        for(Obstacle obstacle : obstacles){
+            if(position.getPositionX() == obstacle.getPositionX()){
+                position.setPositionX(oldPosition.getPositionX());
+            }
+            if(position.getPositionY() == obstacle.getPositionY()){
+                position.setPositionY(oldPosition.getPositionY());
+            }
+        }
+        return position;
+    }
+
+    public static int randomInt(int min, int max) {
+        return ThreadLocalRandom.current().nextInt(min, max + 1);
+    }
+
 }

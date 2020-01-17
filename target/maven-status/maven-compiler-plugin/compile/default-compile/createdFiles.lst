@@ -1,5 +1,6 @@
 com/rover/core/Grid.class
+com/rover/core/Obstacle.class
 com/rover/core/CoordinatesEnum.class
 com/rover/core/Position.class
+com/rover/core/Utils.class
 com/rover/cli/MainActivity.class
-com/rover/core/Orientation.class
