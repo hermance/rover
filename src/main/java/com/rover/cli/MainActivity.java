@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class MainActivity {
     public static void main(String[] args){
-        System.out.println("Bonjour !");
+        System.out.println("Bonjour ! Choisissez une orientation. ");
         Scanner choose = new Scanner(System.in);
         String choice= null;
         String input = "";
@@ -12,7 +12,7 @@ public class MainActivity {
         while(!"end".equals(choice)){
             choice = choose.nextLine();
             position = Orientation.changeOrientation(position, choice);
-            System.out.println("Rover > " + position);
+            System.out.println("Orientation > " + position);
         }
         choose.close();
         return;
